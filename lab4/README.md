@@ -1,25 +1,28 @@
-# SportShop — Catalog de echipament sportiv
+# Learning App — feed și cursuri din API
 
-Aplicație Flutter care consumă un serviciu Web REST (DummyJSON) și este
-organizată după principiile Clean Architecture.
+Aplicație Flutter care consumă un serviciu Web REST și este organizată după
+principiile Clean Architecture. Datele afișate (salut, progres, cursuri,
+bannere, lecții) vin exclusiv din API, nu din asset-uri locale.
 
 ## Funcționalități
 
-- listarea produselor din categoria `sports-accessories`
-- paginare automată la scroll
-- căutare cu debounce
-- sortare efectuată pe server (preț, rating, nume)
-- ecran de detalii cu galerie de imagini, specificații și recenzii
-- listă de favorite
-- stări explicite de încărcare, eroare și listă goală
-- pull-to-refresh
+- feed principal cu antet, avatar și notificare cu indicator de mesaje noi
+- card „Learned today” cu progresul zilei
+- lista cursurilor din plan, cu progres pe fiecare curs
+- banner „What do you want to learn today?” și banner „Meetup”
+- ecran „Course Overview” cu hero, durată, număr de lecții și rating
+- tab-uri Lessons / Description, cu stare goală pentru descrierea lipsă
+- lecții finalizate, lecții blocate și acțiune de înscriere
+- stări explicite de încărcare, eroare și conținut lipsă
+- pull-to-refresh pe feed
+- iconițe SVG livrate de API (Iconify), afișate prin `flutter_svg`
 
 ## Arhitectură
 
 ```
 lib/
 ├── core/                       rețea, erori, temă, widget-uri comune
-└── features/catalog/
+└── features/learning/
     ├── domain/                 entități, contract repository, use cases
     ├── data/                   modele JSON, data source, repository impl
     └── presentation/           cubit-uri, ecrane, widget-uri reutilizabile
@@ -28,25 +31,28 @@ lib/
 ### Fluxul datelor
 
 ```
-UI (CatalogPage)
-  → CatalogCubit
-    → GetProducts / SearchProducts (domain)
-      → ProductRepository (abstract)
-        → ProductRepositoryImpl (data)
-          → ProductRemoteDataSource
+UI (FeedPage / CourseDetailsPage)
+  → FeedCubit / CourseDetailsCubit
+    → GetLearningFeed / GetCourseDetails (domain)
+      → LearningRepository (abstract)
+        → LearningRepositoryImpl (data)
+          → LearningRemoteDataSource
             → ApiClient (HTTP)
-              → DummyJSON
+              → serviciul Web REST
 ```
 
-Răspunsul JSON este deserializat în `ProductModel`, convertit în entitatea
-`Product` și trimis înapoi prin cubit către interfață. Erorile tehnice sunt
-transformate în `Failure` înainte de a ajunge în stratul de prezentare.
+Răspunsul JSON este deserializat în `LearningFeedModel` / `CourseDetailsModel`,
+expus ca entități `LearningFeed` / `CourseDetails` și trimis înapoi prin cubit
+către interfață. Erorile tehnice (socket, timeout, JSON invalid, cod HTTP) sunt
+transformate în `Failure` înainte de a ajunge în stratul de prezentare, iar
+ecranele afișează `LoadingView`, `ErrorView` sau `EmptyView`.
 
 ## Serviciul Web
 
-- `GET /products/category/sports-accessories?limit=&skip=&sortBy=&order=`
-- `GET /products/search?q=&limit=`
-- `GET /products/{id}`
+- `GET /lab2026/v4/feed` — feed-ul de learning
+- `GET /lab2026/v4/feed/details` — detaliile cursului
+
+Host: `test-api-jlbn.onrender.com` (HTTPS).
 
 ## Rulare
 
@@ -61,5 +67,5 @@ flutter run
 flutter test
 ```
 
-Testele acoperă deserializarea JSON, logica din `CatalogCubit` și componenta
-reutilizabilă `ProductCard`.
+Testele acoperă deserializarea și serializarea JSON, logica din
+`FeedCubit` / `CourseDetailsCubit` și componenta reutilizabilă `LessonTile`.

@@ -4,7 +4,7 @@ import '../theme/app_theme.dart';
 
 /// Imagine de rețea cu indicator de încărcare și fallback.
 ///
-/// Componentă reutilizabilă în carduri, galerii și ecranul de detalii.
+/// Componentă reutilizabilă pentru avataruri, bannere și hero-ul cursului.
 class AppImage extends StatelessWidget {
   const AppImage({
     super.key,
@@ -43,7 +43,7 @@ class AppImage extends StatelessWidget {
       errorBuilder: (context, error, stack) => _Placeholder(
         width: width,
         height: height,
-        child: const Icon(Icons.image_not_supported_outlined, color: kGrey),
+        child: const Icon(Icons.image_not_supported_outlined, color: kMuted),
       ),
     );
 

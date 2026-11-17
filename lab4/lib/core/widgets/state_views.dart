@@ -20,7 +20,7 @@ class LoadingView extends StatelessWidget {
             child: CircularProgressIndicator(strokeWidth: 2.5),
           ),
           const SizedBox(height: 14),
-          Text(message, style: const TextStyle(color: kGrey, fontSize: 13)),
+          Text(message, style: const TextStyle(color: kMuted, fontSize: 13)),
         ],
       ),
     );
@@ -33,10 +33,12 @@ class ErrorView extends StatelessWidget {
     super.key,
     required this.message,
     required this.onRetry,
+    this.title = 'Ceva nu a funcționat',
   });
 
   final String message;
   final VoidCallback onRetry;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -50,25 +52,26 @@ class ErrorView extends StatelessWidget {
               width: 64,
               height: 64,
               decoration: const BoxDecoration(
-                color: Color(0xFFFFECEC),
+                color: kAccentSoft,
                 shape: BoxShape.circle,
               ),
-              child: const Icon(Icons.wifi_off_rounded, color: kDanger, size: 30),
+              child: const Icon(Icons.cloud_off_rounded, color: kAccent, size: 30),
             ),
             const SizedBox(height: 16),
-            const Text(
-              'Ceva nu a funcționat',
-              style: TextStyle(
+            Text(
+              title,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
                 fontSize: 17,
                 fontWeight: FontWeight.w700,
-                color: kDark,
+                color: kInk,
               ),
             ),
             const SizedBox(height: 6),
             Text(
               message,
               textAlign: TextAlign.center,
-              style: const TextStyle(color: kGrey, fontSize: 13, height: 1.4),
+              style: const TextStyle(color: kMuted, fontSize: 13, height: 1.4),
             ),
             const SizedBox(height: 18),
             FilledButton.icon(
@@ -83,20 +86,22 @@ class ErrorView extends StatelessWidget {
   }
 }
 
-/// Starea fără rezultate.
+/// Starea fără conținut.
 class EmptyView extends StatelessWidget {
   const EmptyView({
     super.key,
-    this.title = 'Niciun rezultat',
-    this.message = 'Încearcă altă căutare sau alt filtru.',
-    this.actionLabel = 'Resetează',
+    this.title = 'Nimic aici',
+    this.message = 'Conținutul nu este disponibil momentan.',
+    this.actionLabel = 'Reîncarcă',
     this.onAction,
+    this.icon = Icons.inbox_rounded,
   });
 
   final String title;
   final String message;
   final String actionLabel;
   final VoidCallback? onAction;
+  final IconData icon;
 
   @override
   Widget build(BuildContext context) {
@@ -113,22 +118,23 @@ class EmptyView extends StatelessWidget {
                 color: kFieldFill,
                 shape: BoxShape.circle,
               ),
-              child: const Icon(Icons.search_off_rounded, color: kGrey, size: 30),
+              child: Icon(icon, color: kMuted, size: 30),
             ),
             const SizedBox(height: 14),
             Text(
               title,
+              textAlign: TextAlign.center,
               style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w700,
-                color: kDark,
+                color: kInk,
               ),
             ),
             const SizedBox(height: 4),
             Text(
               message,
               textAlign: TextAlign.center,
-              style: const TextStyle(color: kGrey, fontSize: 13),
+              style: const TextStyle(color: kMuted, fontSize: 13),
             ),
             if (onAction != null) ...[
               const SizedBox(height: 12),

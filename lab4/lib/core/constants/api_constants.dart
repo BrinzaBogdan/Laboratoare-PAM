@@ -2,13 +2,13 @@
 class ApiConstants {
   const ApiConstants._();
 
-  static const String host = 'dummyjson.com';
+  static const String host = 'test-api-jlbn.onrender.com';
 
-  /// Categoria de produse afișată în catalog.
-  static const String category = 'sports-accessories';
+  /// Feed-ul de learning al variantei 4.
+  static const String feedPath = '/lab2026/v4/feed';
 
-  /// Numărul de produse cerute pe pagină.
-  static const int pageSize = 12;
+  /// Detaliile cursului (Course Overview).
+  static const String feedDetailsPath = '/lab2026/v4/feed/details';
 
-  static const Duration timeout = Duration(seconds: 15);
+  static const Duration timeout = Duration(seconds: 20);
 }

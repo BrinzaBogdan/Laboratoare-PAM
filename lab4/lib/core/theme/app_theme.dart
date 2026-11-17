@@ -1,22 +1,25 @@
 import 'package:flutter/material.dart';
 
-/// Paleta aplicației (gym store).
-const Color kGreen = Color(0xFF5CC466);
-const Color kGreenDark = Color(0xFF3E9C4C);
-const Color kDark = Color(0xFF14161C);
-const Color kDarkSoft = Color(0xFF23262F);
-const Color kGrey = Color(0xFF8A8F9C);
-const Color kGreyLight = Color(0xFFB9BDC7);
-const Color kBackground = Color(0xFFF4F5F8);
+/// Paleta aplicației de learning.
+const Color kAccent = Color(0xFFFF6F00);
+const Color kAccentSoft = Color(0xFFFFE0CC);
+const Color kAccentDark = Color(0xFFE05F00);
+const Color kInk = Color(0xFF101012);
+const Color kInkSoft = Color(0xFF3A3C44);
+const Color kMuted = Color(0xFF7E858C);
+const Color kMutedLight = Color(0xFFB4B9BF);
+const Color kBackground = Color(0xFFF7F8FA);
 const Color kCard = Colors.white;
+const Color kFieldFill = Color(0xFFF0F1F4);
+const Color kDivider = Color(0xFFE8EAED);
 const Color kDanger = Color(0xFFE5484D);
-const Color kAmber = Color(0xFFF5A623);
-const Color kFieldFill = Color(0xFFEDEFF3);
+const Color kAmber = Color(0xFFFFB300);
+const Color kSuccess = Color(0xFF20C766);
 
 ThemeData buildAppTheme() {
   final scheme = ColorScheme.fromSeed(
-    seedColor: kGreen,
-    primary: kGreen,
+    seedColor: kAccent,
+    primary: kAccent,
     surface: kCard,
   );
 
@@ -34,19 +37,19 @@ ThemeData buildAppTheme() {
       titleLarge: TextStyle(
         fontSize: 22,
         fontWeight: FontWeight.w800,
-        color: kDark,
+        color: kInk,
       ),
       titleMedium: TextStyle(
         fontSize: 16,
         fontWeight: FontWeight.w700,
-        color: kDark,
+        color: kInk,
       ),
-      bodyMedium: TextStyle(fontSize: 13.5, color: kDarkSoft, height: 1.45),
+      bodyMedium: TextStyle(fontSize: 13.5, color: kInkSoft, height: 1.5),
     ),
     filledButtonTheme: FilledButtonThemeData(
       style: FilledButton.styleFrom(
-        backgroundColor: kGreen,
-        foregroundColor: kDark,
+        backgroundColor: kAccent,
+        foregroundColor: Colors.white,
         textStyle: const TextStyle(fontWeight: FontWeight.w700),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(14),

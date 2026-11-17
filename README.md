@@ -7,7 +7,7 @@ A collection of Flutter applications.
 | [`lab1/`](lab1) | Fuel consumption calculator |
 | [`lab2/`](lab2) | Gym training app |
 | [`lab3/`](lab3) | Fitness app with BLoC and JSON data |
-| [`lab4/`](lab4) | Sports equipment catalog with REST API and Clean Architecture |
+| [`lab4/`](lab4) | Learning app with REST API and Clean Architecture |
 
 ## Requirements
 
