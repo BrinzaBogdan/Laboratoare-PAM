@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:lab4_bogdan_varianta3/core/theme/app_theme.dart';
-import 'package:lab4_bogdan_varianta3/features/learning/data/models/course_details_model.dart';
-import 'package:lab4_bogdan_varianta3/features/learning/data/models/learning_feed_model.dart';
-import 'package:lab4_bogdan_varianta3/features/learning/domain/entities/course_details.dart';
-import 'package:lab4_bogdan_varianta3/features/learning/domain/entities/learning_feed.dart';
-import 'package:lab4_bogdan_varianta3/features/learning/domain/repositories/learning_repository.dart';
-import 'package:lab4_bogdan_varianta3/features/learning/domain/usecases/get_course_details.dart';
-import 'package:lab4_bogdan_varianta3/features/learning/domain/usecases/get_learning_feed.dart';
-import 'package:lab4_bogdan_varianta3/features/learning/presentation/cubit/feed_cubit.dart';
-import 'package:lab4_bogdan_varianta3/features/learning/presentation/pages/feed_page.dart';
+import 'package:lab4_bogdan_varianta3/data/models/course_details_model.dart';
+import 'package:lab4_bogdan_varianta3/data/models/learning_feed_model.dart';
+import 'package:lab4_bogdan_varianta3/domain/entities/course_details.dart';
+import 'package:lab4_bogdan_varianta3/domain/entities/learning_feed.dart';
+import 'package:lab4_bogdan_varianta3/domain/repositories/learning_repository.dart';
+import 'package:lab4_bogdan_varianta3/domain/usecases/get_course_details.dart';
+import 'package:lab4_bogdan_varianta3/domain/usecases/get_learning_feed.dart';
+import 'package:lab4_bogdan_varianta3/presentation/cubit/feed_cubit.dart';
+import 'package:lab4_bogdan_varianta3/presentation/pages/feed_page.dart';
 
 import 'helpers/fixtures.dart';
 

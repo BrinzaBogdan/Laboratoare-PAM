@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:lab4_bogdan_varianta3/features/learning/data/models/learning_feed_model.dart';
+import 'package:lab4_bogdan_varianta3/data/models/learning_feed_model.dart';
 
 import 'helpers/fixtures.dart';
 

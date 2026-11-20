@@ -1,12 +1,12 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:lab4_bogdan_varianta3/core/error/failures.dart';
-import 'package:lab4_bogdan_varianta3/features/learning/data/models/course_details_model.dart';
-import 'package:lab4_bogdan_varianta3/features/learning/domain/entities/course_details.dart';
-import 'package:lab4_bogdan_varianta3/features/learning/domain/entities/learning_feed.dart';
-import 'package:lab4_bogdan_varianta3/features/learning/domain/repositories/learning_repository.dart';
-import 'package:lab4_bogdan_varianta3/features/learning/domain/usecases/get_course_details.dart';
-import 'package:lab4_bogdan_varianta3/features/learning/presentation/cubit/course_details_cubit.dart';
-import 'package:lab4_bogdan_varianta3/features/learning/presentation/cubit/course_details_state.dart';
+import 'package:lab4_bogdan_varianta3/data/models/course_details_model.dart';
+import 'package:lab4_bogdan_varianta3/domain/entities/course_details.dart';
+import 'package:lab4_bogdan_varianta3/domain/entities/learning_feed.dart';
+import 'package:lab4_bogdan_varianta3/domain/repositories/learning_repository.dart';
+import 'package:lab4_bogdan_varianta3/domain/usecases/get_course_details.dart';
+import 'package:lab4_bogdan_varianta3/presentation/cubit/course_details_cubit.dart';
+import 'package:lab4_bogdan_varianta3/presentation/cubit/course_details_state.dart';
 
 import 'helpers/fixtures.dart';
 

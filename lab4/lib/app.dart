@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'core/theme/app_theme.dart';
-import 'features/learning/domain/repositories/learning_repository.dart';
-import 'features/learning/domain/usecases/get_course_details.dart';
-import 'features/learning/domain/usecases/get_learning_feed.dart';
-import 'features/learning/presentation/cubit/feed_cubit.dart';
-import 'features/learning/presentation/pages/feed_page.dart';
+import 'domain/repositories/learning_repository.dart';
+import 'domain/usecases/get_course_details.dart';
+import 'domain/usecases/get_learning_feed.dart';
+import 'presentation/cubit/feed_cubit.dart';
+import 'presentation/pages/feed_page.dart';
 
 /// Rădăcina aplicației.
 ///
